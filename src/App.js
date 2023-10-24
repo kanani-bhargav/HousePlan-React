@@ -4,6 +4,8 @@ import "./App.css";
 import { useEffect } from "react";
 import { GET_CATEGORY_PROGRESS } from "./redux-saga/category/action/action";
 import Admin from "./components/admin/Admin";
+import Login from "./components/commonComponents/Login";
+import Home from "./components/user/Home";
 
 function App() {
   const dispatch = useDispatch();
@@ -14,7 +16,9 @@ function App() {
 
   return (
     <div className="App">
-      <Admin />
+      {/* <Login/> */}
+      {/* <Admin /> */}
+      <Home/>
     </div>
   );
 }
