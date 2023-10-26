@@ -1,4 +1,4 @@
-export const BASE_URL = "http://43.204.231.136:4000/v1";
+export const BASE_URL = "http://3.110.105.54:4000/v1";
 
 /**routes */
 export const GET_CATEGORY = "/category/list";

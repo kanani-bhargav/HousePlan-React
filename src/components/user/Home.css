@@ -1,26 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Baumans&family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap');
 
 /* common css*/
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 .home-body {
     background: #EEE;
 }
-ul{
+
+ul {
     padding: 0;
     list-style: none;
 }
 
 /* header */
-.header-bg{
+.header-bg {
     background-color: #000;
 }
+
 .contact-head {
     width: 15rem;
 }
+
 .logo-name {
     color: #fcfcfc;
     font-family: Baumans;
@@ -44,6 +48,7 @@ ul{
     background: #053B50;
 }
 
+
 .nav-item .nav-link {
     color: #ffffff;
     font-family: Baumans;
@@ -52,6 +57,10 @@ ul{
     font-weight: 400;
     line-height: normal;
     text-transform: capitalize;
+}
+.nav-item{
+    position: relative;
+    display: inline-block;
 }
 
 .nav-item .nav-link:hover {
@@ -74,25 +83,58 @@ ul{
 }
 
 .login-text:hover {
-    color: #f28e08  ;
+    color: #f28e08;
 }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    color: #ffffff;
+    background-color: #000000;
+    min-width: 160px;
+    box-shadow: 5px 8px 16px 5px rgba(237, 230, 230, 0.367);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: rgb(255, 255, 255);
+    padding: 5px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+    color: #000 !important;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
 /*banner*/
-.banner{
-    background:  url("https://cdn.houseplansservices.com/banner/ltudt1g802hdh3rqiv8q92d6qs/stripped.jpg?v=2");
+.banner {
+    background: url("https://cdn.houseplansservices.com/banner/ltudt1g802hdh3rqiv8q92d6qs/stripped.jpg?v=2");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 /* form-filter componant*/
-.form-filter-wrapeer{
+.form-filter-wrapeer {
     background: #d0d0d0e5;
     max-width: 280px;
     padding: 15px;
 }
-.form-filter-head{
+
+.form-filter-head {
     color: #021218;
 }
-.form-btn{
+
+.form-btn {
     width: 30px;
     height: 30px;
     color: #053B50;
@@ -102,29 +144,34 @@ ul{
     font-size: 12px;
     margin: 0 5px;
 }
-.form-btn:hover{
- background-color: #053B50;
+
+.form-btn:hover {
+    background-color: #053B50;
     color: #ffffff;
 }
-.form-filter-input{
-   max-width: 100px;
+
+.form-filter-input {
+    max-width: 100px;
     height: 30px;
     color: #053B50;
     line-height: 1.2;
     border: 1px solid #053B50;
     border-radius: 50px;
     font-size: 16px;
-    transition:  all .5s ease;
+    transition: all .5s ease;
     padding-left: 10px;
 }
-.form-filter-input:hover{
+
+.form-filter-input:hover {
     border-radius: 5px;
 }
-.form-filter-input::placeholder{
+
+.form-filter-input::placeholder {
     font-size: 12px;
- padding: 0px 25px 0px;
+    padding: 0px 25px 0px;
 }
-.form-filter-search{
+
+.form-filter-search {
     width: 100%;
     height: 40px;
     border: none;
@@ -132,7 +179,8 @@ ul{
     color: #EEE;
     background-color: rgb(41, 41, 41);
 }
-.form-filter-search:hover{
+
+.form-filter-search:hover {
     color: #EEE;
     background-color: #053B50;
     border-radius: 3px;
@@ -140,24 +188,25 @@ ul{
 
 
 /* footer content*/
-.footer-wrapper{
+.footer-wrapper {
     background-image: url('https://images.alphacoders.com/435/thumbbig-435117.webp');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     position: relative;
 }
-.footer-wrapper::after{
+
+.footer-wrapper::after {
     width: 100%;
     height: 100%;
     position: absolute;
     content: "";
-   background: #000000bb;
-   top: 0;
-   left: 0;
+    background: #000000bb;
+    top: 0;
+    left: 0;
 }
 
-.footer-logo-name{
+.footer-logo-name {
     color: #EEE;
     font-family: Baumans;
     font-size: 32px;
@@ -167,37 +216,44 @@ ul{
     text-transform: capitalize;
     z-index: 2;
 }
-.footer-logo svg{
+
+.footer-logo svg {
     z-index: 2;
 }
-.footer-wrapper .container{
+
+.footer-wrapper .container {
     padding: 100px 0;
 }
-.footer-wrapper .container .side-section{
+
+.footer-wrapper .container .side-section {
     z-index: 2;
 }
-.footer-wrapper .footer-title{
+
+.footer-wrapper .footer-title {
     color: rgb(185, 184, 184);
     font-style: oblique;
 }
-.footer-wrapper .footer-item{
+
+.footer-wrapper .footer-item {
     color: rgb(255, 255, 255);
     font-size: 16px;
-    text-transform:capitalize ;
+    text-transform: capitalize;
 }
 
 .collection-card {
     position: relative;
     height: 300px;
 }
-.collection-img{
+
+.collection-img {
     position: absolute;
     height: auto;
     top: 0;
     left: 0;
     object-fit: contain;
 }
-.collection-description{
+
+.collection-description {
     position: absolute;
     bottom: 0;
     left: 0;

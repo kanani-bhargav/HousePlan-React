@@ -1,7 +1,6 @@
 import { combineReducers } from "redux";
-import categoryReducer from "./category/reducer/reducer";
-import subCategoryReducer from "./subCategory/reducer/reducer";
-import childSubCategoryReducer from "./childSubCategory/reducer/reducer";
+import {categoryReducer,subCategoryReducer,childSubCategoryReducer} from "./category/reducer/reducer";
+
 
 const rootReducers = combineReducers({
   categoryReducer,

@@ -1,6 +1,15 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const Navbar = () => {
+  const categoryData = useSelector((state) => state.categoryReducer);
+  const subCategoryData = useSelector((state) => state.subCategoryReducer);
+  // console.log("🚀 ~ file: Navbar.js:7 ~ Navbar ~ subCategoryData:", subCategoryData)
+  const category = categoryData.category.filter(
+    (val) => val.is_active === true
+  );
+  const subCategory = subCategoryData.subcategory;
+
   return (
     <header className="header-bg">
       <div className="container">
@@ -30,7 +39,7 @@ const Navbar = () => {
           </a>
           <div>
             <div className="contact-head d-flex align-items-center justify-content-between">
-              <div className="d-flex align-items-center"> 
+              <div className="d-flex align-items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width={24}
@@ -113,46 +122,43 @@ const Navbar = () => {
               <li className="nav-item">
                 <a className="nav-link first px-4 py-1">Sale</a>
               </li>
-              <li className="nav-item">
-                <a className="nav-link px-3 py-1">
-                  <span> Styles</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={22}
-                    height={12}
-                    viewBox="0 0 22 14"
-                    fill="none"
-                    className="ps-2"
-                  >
-                    <path
-                      d="M1 1.75L11 11.75L21 1.75"
-                      stroke="#f28e08"
-                      strokeWidth={2}
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link px-3 py-1">
-                  <span> Styles</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={22}
-                    height={12}
-                    viewBox="0 0 22 14"
-                    fill="none"
-                    className="ps-2"
-                  >
-                    <path
-                      d="M1 1.75L11 11.75L21 1.75"
-                      stroke="#f28e08"
-                      strokeWidth={2}
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </a>
-              </li>
+              {category.map((val, ind) => (
+                <li className="nav-item dropdown" key={ind}>
+                  <a className="nav-link px-3 py-1 ">
+                    <span>{val.category_name}</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width={22}
+                      height={12}
+                      viewBox="0 0 22 14"
+                      fill="none"
+                      className="ps-2"
+                    >
+                      <path
+                        d="M1 1.75L11 11.75L21 1.75"
+                        stroke="#f28e08"
+                        strokeWidth={2}
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </a>
+                  <div className="dropdown-content">
+                    {subCategory.map((subVal, subInd) => {
+                      if (val._id === subVal.category._id) {
+                        return (
+                          <a href="" key={subInd}>
+                            {subVal.subCategory_name}
+                          </a>
+                        );
+                      } else {
+                        <a href="" key={subInd} z>
+                          data unavalilable
+                        </a>;
+                      }
+                    })}
+                  </div>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="user-login">
