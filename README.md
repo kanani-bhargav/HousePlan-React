@@ -96,8 +96,5 @@ We welcome contributions from the open-source community. If you'd like to contri
 This project is licensed under the [MIT License](LICENSE), which means you are free to use, modify, and distribute the app for personal or commercial use.
 
 ---
-
 Thank you for choosing the House Plan React app. We hope you enjoy exploring and visualizing your dream house plans!
 ```
-
-You can customize this template by replacing placeholder information with your app-specific details.
