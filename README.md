@@ -21,15 +21,13 @@ The House Plan React app is designed to provide an interactive and engaging expe
 ### Key Highlights:
 
 - **Extensive Library:** Browse a vast collection of house plans with different styles, sizes, and layouts.
-- **Visualization:** View detailed floor plans, dimensions, and 3D renderings for in-depth exploration.
-- **Comparison:** Compare multiple house plans side by side to find the perfect match.
+- **Visualization:** View detailed floor plans, dimensions for in-depth exploration.
 - **Reviews:** Read user reviews and ratings for insights into the building process and satisfaction.
 
 ## 2. Features
 
 - **House Plan Catalog:** Explore a diverse range of house plans.
-- **Detailed View:** Access floor plans, dimensions, and 3D renderings.
-- **Comparison Tool:** Compare multiple house plans simultaneously.
+- **Detailed View:** Access floor plans, dimensions.
 - **User Reviews:** Read reviews and ratings from other users.
 - **User-Friendly Interface:** Easy navigation and interactive design.
 
@@ -47,13 +45,13 @@ Follow these steps to get the app up and running on your local machine:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/house-plan-react-app.git
+   git clone https://github.com/kanani-bhargav/HousePlan-React.git
    ```
 
 2. **Navigate to the project directory:**
 
    ```bash
-   cd house-plan-react-app
+   cd HousePlan-React
    ```
 
 3. **Install project dependencies:**
