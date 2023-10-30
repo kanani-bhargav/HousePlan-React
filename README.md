@@ -1,4 +1,4 @@
-# House Plan React App
+# House Plan
 
 Welcome to the House Plan React app, a user-friendly platform for exploring and visualizing house plans. This README will guide you through the installation, usage, and customization of the app.
 
