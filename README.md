@@ -7,7 +7,7 @@ Welcome to the House Plan React app, a user-friendly platform for exploring and 
 1. [Introduction](#introduction)
 2. [Features](#features)
 3. [Prerequisites](#prerequisites)
-4. [Installation](#installation)
+4. [Installation](##installation)
 5. [Usage](#usage)
 6. [Customization](#customization)
 7. [Deployment](#deployment)
