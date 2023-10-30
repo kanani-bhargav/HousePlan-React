@@ -1,11 +1,11 @@
 import React from "react";
 
-const CollectionCard = () => {
+const CollectionCard = ({imageUrl,categoryName}) => {
   return (
-    <a  className="collection-card col-3">
-  <img className="collection-img" src="https://cdn.houseplansservices.com/product/f14kbdvad9hvfguvli1jk9m26b/w300x200.jpg?v=4" />
-  <div className=".collection-description">
-    <h4 className="">Barndominium</h4>
+    <a  className="collection-card col-lg-3 col-md-4 col-sm-6 p-2">
+  <img className="collection-img " src={imageUrl} />
+  <div className="collection-description p-1">
+    <h6  className="text-center mb-0">{categoryName}</h6>
   </div>
 </a>
 
