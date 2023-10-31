@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import HeadingHeader from "../commonComponents/HeadingHeader";
 import { useDispatch, useSelector } from "react-redux";
-import { POST_CATEGORY_PROGRESS } from "../../redux-saga/category/action/action";
+import { POST_CATEGORY_PROGRESS } from "../../redux-saga/all_saga/action/action";
 
 const Category = () => {
   const data = useSelector((state) => state.categoryReducer);
@@ -12,16 +12,12 @@ const Category = () => {
     category_heading: "",
     category_description: "",
   });
-  const [updateData, setUpdateData] = useState({
-    category_heading: "",
-    category_description: "",
-    is_active: true,
-  });
 
   const handleChange = (e) => {
     setPostData({ ...postData, [e.target.name]: e.target.value });
   };
   const createHandleSubmit = (e) => {
+    console.log(postData);
     e.preventDefault();
     if (
       postData.category_name &&
@@ -58,7 +54,14 @@ const Category = () => {
             className="btn btn-success my-2"
             data-bs-toggle="modal"
             data-bs-target="#create-category"
-            onClick={() => setFormSubmit(true)}
+            onClick={() => {
+              setFormSubmit(true);
+              setPostData({
+                category_name: "",
+                category_heading: "",
+                category_description: "",
+              });
+            }}
           >
             Create Category
           </button>
@@ -159,7 +162,16 @@ const Category = () => {
                   <button className="btn btn-danger ">Delete Category</button>
                   <button
                     className="btn btn-secondary"
-                    onClick={() => setFormSubmit(false)}
+                    data-bs-toggle="modal"
+                    data-bs-target="#create-category"
+                    onClick={() => {
+                      setFormSubmit(false);
+                      setPostData({
+                        category_name: val.category_name,
+                        category_heading: val.category_heading,
+                        category_description: val.category_description,
+                      });
+                    }}
                   >
                     Update Category
                   </button>

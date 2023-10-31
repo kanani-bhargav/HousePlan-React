@@ -4,13 +4,13 @@ import {
   GET_CHILD_SUB_CATEGORY_PROGRESS,
   GET_SUB_CATEGORY_PROGRESS,
   POST_CATEGORY_PROGRESS,
-} from "../../category/action/action";
+} from "../../all_saga/action/action";
 import {
   handleGetCatgory,
   handleGetChildSubCatgory,
   handleGetSubCatgory,
   handlePostCatgory,
-} from "../category/manageCategory";
+} from "../saga_manage/manageCategory";
 
 // GET category data
 const getSaga = (GET_PROGRESS, manageFunction) => {

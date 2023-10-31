@@ -114,11 +114,12 @@ const dataReducer = (
         };
       }
       case POST_SUCCESS: {
+        console.log('File: reducer.js', 'Line 117:', state ,action.data);
         let obj = {};
         obj[`post${item}Progress`] = false;
         obj[`post${item}Error`] = null;
         obj[`${itemName}IsLoaded`] = true;
-        obj[`${itemName}`] = state.category.concat(action.data);
+        obj[`${itemName}`] = state.category.push(action.data);
         return {
           ...state,
           ...obj,

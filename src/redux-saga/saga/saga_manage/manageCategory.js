@@ -1,5 +1,4 @@
 import { call, put } from "redux-saga/effects";
-import { getCategory, getChildSubCategory, getSubCategory, postCategory } from "../../category/api/api";
 import {
   GET_CATEGORY_ERROR,
   GET_CATEGORY_SUCCESS,
@@ -9,7 +8,8 @@ import {
   GET_SUB_CATEGORY_SUCCESS,
   POST_CATEGORY_ERROR,
   POST_CATEGORY_SUCCESS,
-} from "../../category/action/action";
+} from "../../all_saga/action/action";
+import { getCategory,getSubCategory,getChildSubCategory,postCategory } from "../../all_saga/api/api";
 
 const handleGetData = (apiDataFunction, GET_SUCCESS, GET_ERROR) => {
   return function* (action) {
@@ -51,7 +51,7 @@ export function* handlePostCatgory(action) {
   try {
     const res = yield call(postCategory, action.payload);
     const status = res.status;
-    const data = res.data.data;
+    const data = res.data;
     if (status === 200) {
       yield put({ type: POST_CATEGORY_SUCCESS, data });
     } else {

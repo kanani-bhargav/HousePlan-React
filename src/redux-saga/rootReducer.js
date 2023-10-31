@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import {categoryReducer,subCategoryReducer,childSubCategoryReducer} from "./category/reducer/reducer";
+import {categoryReducer,subCategoryReducer,childSubCategoryReducer} from "./all_saga/reducer/reducer";
 
 
 const rootReducers = combineReducers({
