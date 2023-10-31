@@ -16,14 +16,21 @@ import {
   handleUpdateCategory,
 } from "../saga_manage/manageCategory";
 
-// GET category data
+/**
+ *  reusable function saga
+ * @param {*} GET_PROGRESS  pass action as a parameter
+ * @param {*} manageFunction pass function as parameter
+ * @returns
+ */
 const getSaga = (GET_PROGRESS, manageFunction) => {
   return function* () {
     yield takeLatest(GET_PROGRESS, manageFunction);
   };
 };
 
+// GET category data
 export const getCategorySaga = getSaga(GET_CATEGORY_PROGRESS, handleGetCatgory);
+
 export const getSubCategorySaga = getSaga(
   GET_SUB_CATEGORY_PROGRESS,
   handleGetSubCatgory

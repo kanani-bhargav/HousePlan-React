@@ -22,6 +22,13 @@ import {
   updateCategory,
 } from "../../all_saga/api/api";
 
+/**
+ * get handle reusable function
+ * @param {*} apiDataFunction pass function as parameter
+ * @param {*} GET_SUCCESS  pass success action
+ * @param {*} GET_ERROR    pass error action
+ * @returns
+ */
 const handleGetData = (apiDataFunction, GET_SUCCESS, GET_ERROR) => {
   return function* (action) {
     try {
@@ -39,6 +46,7 @@ const handleGetData = (apiDataFunction, GET_SUCCESS, GET_ERROR) => {
   };
 };
 
+/** get data */
 export const handleGetCatgory = handleGetData(
   getCategory,
   GET_CATEGORY_SUCCESS,
@@ -57,7 +65,13 @@ export const handleGetChildSubCatgory = handleGetData(
   GET_CHILD_SUB_CATEGORY_ERROR
 );
 
-// Post School detail
+/**
+ * post,delete,update handle reusable function
+ * @param {*} apiDataFunction pass function as parameter
+ * @param {*} GET_SUCCESS  pass success action
+ * @param {*} GET_ERROR    pass error action
+ * @returns
+ */
 const handlePostData = (apiDataFunction, GET_SUCCESS, GET_ERROR) => {
   return function* (action) {
     try {
@@ -75,16 +89,21 @@ const handlePostData = (apiDataFunction, GET_SUCCESS, GET_ERROR) => {
   };
 };
 
+/** post data */
 export const handlePostCategory = handlePostData(
   postCategory,
   POST_CATEGORY_SUCCESS,
   POST_CATEGORY_ERROR
 );
+
+/** delete data */
 export const handleDeleteCategory = handlePostData(
   deleteCategory,
   DELETE_CATEGORY_SUCCESS,
   DELETE_CATEGORY_ERROR
 );
+
+/**update data */
 export const handleUpdateCategory = handlePostData(
   updateCategory,
   UPDATE_CATEGORY_SUCCESS,
