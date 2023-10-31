@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import HeadingHeader from "../commonComponents/HeadingHeader";
 import { useDispatch, useSelector } from "react-redux";
-import { POST_CATEGORY_PROGRESS } from "../../redux-saga/all_saga/action/action";
+import { DELETE_CATEGORY_PROGRESS, POST_CATEGORY_PROGRESS, UPDATE_CATEGORY_PROGRESS } from "../../redux-saga/all_saga/action/action";
 
 const Category = () => {
   const data = useSelector((state) => state.categoryReducer);
   const dispatch = useDispatch();
   const [formSubmit, setFormSubmit] = useState(true);
+  const [id, setId] = useState("");
   const [postData, setPostData] = useState({
     category_name: "",
     category_heading: "",
     category_description: "",
+    is_active:true
   });
 
   const handleChange = (e) => {
@@ -35,6 +37,11 @@ const Category = () => {
   };
   const updateHandleSubmit = (e) => {
     e.preventDefault();
+    const putData={
+    category_heading: postData.category_heading,
+    category_description: postData.category_description,
+    is_active:true}
+    dispatch({ type: UPDATE_CATEGORY_PROGRESS, payload: {id,putData}})
     setPostData({
       ...postData,
       category_name: "",
@@ -159,14 +166,15 @@ const Category = () => {
                   <p className="card-text">{val.category_description}</p>
                 </div>
                 <div className="d-flex justify-content-between p-2">
-                  <button className="btn btn-danger ">Delete Category</button>
+                  <button className="btn btn-danger " onClick={()=>dispatch({ type: DELETE_CATEGORY_PROGRESS, payload: val._id })}>Delete Category</button>
                   <button
                     className="btn btn-secondary"
                     data-bs-toggle="modal"
                     data-bs-target="#create-category"
                     onClick={() => {
                       setFormSubmit(false);
-                      setPostData({
+                      setId(val._id)
+                      setPostData({...postData,
                         category_name: val.category_name,
                         category_heading: val.category_heading,
                         category_description: val.category_description,

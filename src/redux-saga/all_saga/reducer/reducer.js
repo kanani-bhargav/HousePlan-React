@@ -1,4 +1,7 @@
 import {
+  DELETE_CATEGORY_ERROR,
+  DELETE_CATEGORY_PROGRESS,
+  DELETE_CATEGORY_SUCCESS,
   GET_CATEGORY_ERROR,
   GET_CATEGORY_PROGRESS,
   GET_CATEGORY_SUCCESS,
@@ -20,6 +23,9 @@ import {
   POST_SUB_CATEGORY_ERROR,
   POST_SUB_CATEGORY_PROGRESS,
   POST_SUB_CATEGORY_SUCCESS,
+  UPDATE_CATEGORY_ERROR,
+  UPDATE_CATEGORY_PROGRESS,
+  UPDATE_CATEGORY_SUCCESS,
 } from "../action/action";
 
 const initialState = (item) => {
@@ -63,7 +69,13 @@ const dataReducer = (
   POST_PROGRESS,
   POST_SUCCESS,
   POST_DUPLICATE,
-  POST_ERROR
+  POST_ERROR,
+  DELETE_PROGRESS,
+  DELETE_SUCCESS,
+  DELETE_ERROR,
+  UPDATE_PROGRESS,
+  UPDATE_SUCCESS,
+  UPDATE_ERROR
 ) => {
   const elementReducer = (state = initialState(item), action) => {
     const itemName = item.toLowerCase();
@@ -100,6 +112,42 @@ const dataReducer = (
           ...obj,
         };
       }
+      // DELETE CATEGORY REDUCER
+      case DELETE_PROGRESS: {
+        let obj = {};
+        obj[`get${item}Progress`] = true;
+        obj[`get${item}Error`] = null;
+        obj[`${itemName}IsLoaded`] = false;
+        return {
+          ...state,
+          ...obj,
+        };
+      }
+      case DELETE_SUCCESS: {
+        console.log("File: reducer.js", "Line 121:", action);
+        let obj = {};
+        obj[`get${item}Progress`] = false;
+        obj[`get${item}Error`] = null;
+        obj[`${itemName}IsLoaded`] = true;
+        obj[`${itemName}`] = state[`${itemName}`].filter(
+          (val) => val._id != action.data
+        );
+        return {
+          ...state,
+          ...obj,
+        };
+      }
+
+      case DELETE_ERROR: {
+        let obj = {};
+        obj[`get${item}Progress`] = false;
+        obj[`get${item}Error`] = action.data;
+        obj[`${itemName}IsLoaded`] = false;
+        return {
+          ...state,
+          ...obj,
+        };
+      }
 
       // POST CATEGORY REDUCER
 
@@ -114,12 +162,13 @@ const dataReducer = (
         };
       }
       case POST_SUCCESS: {
-        console.log('File: reducer.js', 'Line 117:', state ,action.data);
         let obj = {};
         obj[`post${item}Progress`] = false;
         obj[`post${item}Error`] = null;
         obj[`${itemName}IsLoaded`] = true;
-        obj[`${itemName}`] = state.category.push(action.data);
+        obj[`${itemName}`] = state[`${itemName}`].concat(
+          action.data[`${itemName}`]
+        );
         return {
           ...state,
           ...obj,
@@ -136,6 +185,44 @@ const dataReducer = (
         };
       }
       case POST_ERROR: {
+        let obj = {};
+        obj[`post${item}Progress`] = false;
+        obj[`post${item}Error`] = action.data;
+        obj[`${itemName}IsLoaded`] = false;
+        return {
+          ...state,
+          ...obj,
+        };
+      }
+      // UPDATE CATEGORY REDUCER
+
+      case UPDATE_PROGRESS: {
+        let obj = {};
+        obj[`post${item}Progress`] = true;
+        obj[`post${item}Error`] = null;
+        obj[`${itemName}IsLoaded`] = false;
+        return {
+          ...state,
+          ...obj,
+        };
+      }
+      case UPDATE_SUCCESS: {
+        let obj = {};
+        obj[`post${item}Progress`] = false;
+        obj[`post${item}Error`] = null;
+        obj[`${itemName}IsLoaded`] = true;
+        obj[`${itemName}`] = state[`${itemName}`].map((val) => {
+          if (val._id == action.data[`${itemName}`]._id) {
+            return action.data[`${itemName}`];
+          }
+          return val
+        });
+        return {
+          ...state,
+          ...obj,
+        };
+      }
+      case UPDATE_ERROR: {
         let obj = {};
         obj[`post${item}Progress`] = false;
         obj[`post${item}Error`] = action.data;
@@ -165,7 +252,13 @@ export const categoryReducer = dataReducer(
   POST_CATEGORY_PROGRESS,
   POST_CATEGORY_SUCCESS,
   POST_CATEGORY_DUPLICATE,
-  POST_CATEGORY_ERROR
+  POST_CATEGORY_ERROR,
+  DELETE_CATEGORY_PROGRESS,
+  DELETE_CATEGORY_SUCCESS,
+  DELETE_CATEGORY_ERROR,
+  UPDATE_CATEGORY_PROGRESS,
+  UPDATE_CATEGORY_SUCCESS,
+  UPDATE_CATEGORY_ERROR
 );
 
 export const subCategoryReducer = dataReducer(

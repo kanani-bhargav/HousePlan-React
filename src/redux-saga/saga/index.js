@@ -1,6 +1,20 @@
 import { all } from "@redux-saga/core/effects";
-import { getCategorySaga, getChildSubCategorySaga, getSubCategorySaga, postCategoySaga } from "./root/rootCategory";
+import {
+  deleteCategorySaga,
+  getCategorySaga,
+  getChildSubCategorySaga,
+  getSubCategorySaga,
+  postCategorySaga,
+  updateCategorySaga,
+} from "./root/rootCategory";
 
 export function* rootSaga() {
-  yield all([getCategorySaga(), getSubCategorySaga(), getChildSubCategorySaga(),postCategoySaga()]);
+  yield all([
+    getCategorySaga(),
+    getSubCategorySaga(),
+    getChildSubCategorySaga(),
+    postCategorySaga(),
+    deleteCategorySaga(),
+    updateCategorySaga(),
+  ]);
 }
