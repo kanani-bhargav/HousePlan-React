@@ -98,3 +98,4 @@ This project is licensed under the [MIT License](LICENSE), which means you are f
 ---
 Thank you for choosing the House Plan React app. We hope you enjoy exploring and visualizing your dream house plans!
 ```
+git pull
