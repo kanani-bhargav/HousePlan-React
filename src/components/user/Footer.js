@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Footer = () => {
+const Footer = ({container}) => {
   return (
     <footer className='footer-wrapper'>
-       <div className='container d-lg-flex d-md-block justify-content-lg-between'>
+       <div className={`${container} d-lg-flex d-md-block justify-content-lg-between`}>
      <div className='col-lg-4 col-md-4 col-sm-12  mx-md-auto'>
      <div className='footer-logo d-flex flex-column align-items-center justify-content-center'>
         <svg

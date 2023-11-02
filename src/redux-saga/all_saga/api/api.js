@@ -1,5 +1,5 @@
 import axios from "axios";
-import { BASE_URL, DELETE_CATEGORY, GET_CATEGORY, GET_CHILD_SUB_CATEGORY, GET_SUB_CATEGORY, POST_CATEGORY, PUT_CATEGORY } from "../../constant";
+import { BASE_URL, DELETE_CATEGORY, GET_CATEGORY, GET_CHILD_SUB_CATEGORY, GET_PRODUCT, GET_SUB_CATEGORY, POST_CATEGORY, PUT_CATEGORY } from "../../constant";
 
 /**
  * reusable function for get data
@@ -15,7 +15,6 @@ const createGetData = (getRoute) => {
       .then((res) => {
         const data = res.data;
         const status = res.status;
-        // console.log('File: api.js', 'Line 15:', data);
         return {
           data,
           status,
@@ -30,6 +29,7 @@ const createGetData = (getRoute) => {
 export const getCategory = createGetData(GET_CATEGORY);
 export const getSubCategory = createGetData(GET_SUB_CATEGORY);
 export const getChildSubCategory = createGetData(GET_CHILD_SUB_CATEGORY);
+export const getProduct = createGetData(GET_PRODUCT);
 
 /**
  *reusable function for post data

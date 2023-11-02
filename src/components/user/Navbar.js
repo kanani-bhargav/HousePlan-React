@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-const Navbar = () => {
+const Navbar = ({container}) => {
   const categoryData = useSelector((state) => state.categoryReducer);
   const subCategoryData = useSelector((state) => state.subCategoryReducer);
   // console.log("🚀 ~ file: Navbar.js:7 ~ Navbar ~ subCategoryData:", subCategoryData)
@@ -11,10 +11,11 @@ const Navbar = () => {
   const subCategory = subCategoryData.subcategory;
 
   return (
-    <header className="header-bg">
-      <div className="container">
-        <div className="d-flex align-items-center justify-content-between w-100">
-          <a className="navbar-brand">
+   <>
+    <header className="header-bg ">
+      <div className={`${container}`}>
+        <div className="d-flex align-items-center justify-content-between w-100" >
+          <a className="navbar-brand pt-1">
             <div className="d-flex align-items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -105,7 +106,11 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <nav className="navbar navbar-expand-lg justify-content-between">
+      </div>
+    </header>
+    <header className="header-bg position-sticky top-0">
+      <div className={`${container}`}>
+      <nav className="navbar navbar-expand-lg justify-content-between ">
           <button
             className="navbar-toggler"
             type="button"
@@ -192,6 +197,8 @@ const Navbar = () => {
         </nav>
       </div>
     </header>
+      
+   </>
   );
 };
 

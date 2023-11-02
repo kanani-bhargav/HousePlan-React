@@ -24,9 +24,9 @@ const whyChooseData= [
 ];
 const WhyChoose = () => {
   return (
-    <div className="container py-5">
+    <div className="py-5">
       <h3 className="text-center">Why choose Houseplans?</h3>
-      <div className="row">
+      <div className="row px-1">
         {
             whyChooseData.map((val,ind)=>{
               return ( <a className="whyChoose_card col-lg-4 col-md-4 col-sm-12 p-2 d-block p-lg-4 p-md-2" key={ind}>

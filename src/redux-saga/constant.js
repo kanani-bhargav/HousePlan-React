@@ -15,3 +15,8 @@ export const GET_CHILD_SUB_CATEGORY = "/childSubCategory/list";
 export const POST_CHILD_SUB_CATEGORY = "/childSubCategory/create";
 export const DELETE_CHILD_SUB_CATEGORY = "/childSubCategory/delete/"; // /childSubCategoryId
 export const PUT_CHILD_SUB_CATEGORY = "/childSubCategory/update/"; // /childSubCategoryId
+
+export const GET_PRODUCT = "/product/list";
+export const POST_PRODUCT = "/product/create";
+export const DELETE_PRODUCT = "/product/delete/"; // /productId
+export const PUT_PRODUCT = "/product/update/"; // /productId

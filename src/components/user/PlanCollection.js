@@ -7,9 +7,9 @@ const PlanCollection = () => {
     console.log('File: PlanCollection.js', 'Line 7:',subCategoryData.subcategory );
 
   return (
-    <div className='container px-3 py-5'>
+    <div className=' py-5'>
         <h3>Home Plan Collections</h3>
-    <div className='row '>
+    <div className='row px-1'>
     {
         subCategoryData.subcategory.map((val,ind)=>{
              if(ind<4){

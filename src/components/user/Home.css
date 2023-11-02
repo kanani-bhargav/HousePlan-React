@@ -27,6 +27,7 @@ a{
 /* header */
 .header-bg {
     background-color: #000;
+    z-index: 999;
 }
 
 .contact-head {

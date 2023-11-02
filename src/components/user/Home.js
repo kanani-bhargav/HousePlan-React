@@ -9,11 +9,13 @@ import WhyChoose from "./WhyChoose";
 const Home = () => {
   return (
     <div className="home-body">
-      <Navbar />
+     <Navbar container="container p-0"/>
+     <div className="container">
       <Banner />
       <PlanCollection/>
       <WhyChoose/>
-      <Footer />
+     </div>
+      <Footer container="container"/>
     </div>
   );
 };
